@@ -1,0 +1,45 @@
+---
+import Shell from '../layouts/Shell.astro'
+import Edition from './Edition.astro'
+import { base, formatDate, siteName } from '../lib/issues.mjs'
+import { directory, feedPages, feedUrl } from '../lib/feed.mjs'
+
+const { page } = Astro.props
+const next = page < feedPages.length ? feedUrl(page + 1) : undefined
+---
+<Shell>
+  <h1 class="visually-hidden">{siteName}</h1>
+  <aside class="issue-index" data-feed-page={page}>
+    <button class="issue-index-toggle" type="button" aria-expanded="false" aria-controls="issue-index-nav" hidden>目录</button>
+    <nav class="issue-index-nav" id="issue-index-nav" aria-label="周报目录">
+      {directory.map(([year, editions]) => <div class="issue-index-group">
+        <p class="issue-index-year">{year}</p>
+        <ul>
+          {editions.map(({ date, title, directoryLabel, page }) => {
+            const id = 'issue-' + date
+            const dateLabel = formatDate(date).slice(5)
+            return <li><a href={feedUrl(page) + '#' + id} data-issue={id} data-page={page} title={title} aria-label={date + ' ' + title}>
+              <time datetime={date}>{dateLabel}</time>
+              <span class="issue-index-label">{directoryLabel}</span>
+              <span class="issue-index-title">{title}</span>
+            </a></li>
+          })}
+        </ul>
+      </div>)}
+    </nav>
+  </aside>
+  <div class="reading feed">
+    <div id="feed-entries">
+      {feedPages[page - 1].map(issue => <Edition issue={issue} feed />)}
+    </div>
+    <div class="feed-pagination">
+      <p class="feed-status" role="status"></p>
+      {next && <a class="feed-next" href={next}>加载更早的周报</a>}
+      <a id="archive" href={base + '/archive/'}>查看往期归档</a>
+    </div>
+  </div>
+</Shell>
+
+<script>
+  import '../lib/feed-client'
+</script>

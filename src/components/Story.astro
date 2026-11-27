@@ -1,0 +1,30 @@
+---
+interface Props {
+  item: {
+    title: string
+    publisher: string
+    url: string
+    paragraphs: string[]
+    insight?: string
+    tags?: string[]
+  }
+  heading: 'h2' | 'h3'
+  number: number
+  sourceCredit?: string
+}
+const { item, heading: Heading, number, sourceCredit = item.publisher } = Astro.props
+const [finding, ...remaining] = item.paragraphs
+const advice = remaining.pop()
+---
+<section class="story">
+  <Heading><span class="story-number">{String(number).padStart(2, '0')}.</span> {item.title}</Heading>
+  {item.tags?.length && (
+    <ul class="story-tags" aria-label="资讯主题">{item.tags.map(tag => <li>{tag}</li>)}</ul>
+  )}
+  <p><strong>来源：</strong>{sourceCredit}</p>
+  <p><strong>核心发现：</strong>{finding}</p>
+  {item.insight && <p><strong>应用价值：</strong>{item.insight}</p>}
+  {remaining.map(paragraph => <p>{paragraph}</p>)}
+  {advice && <p><strong>可执行建议：</strong>{advice}</p>}
+  <p class="source"><a href={item.url}>阅读原文</a></p>
+</section>

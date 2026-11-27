@@ -1,0 +1,14 @@
+---
+import Feed from '../../components/Feed.astro'
+import { feedPages } from '../../lib/feed.mjs'
+
+export function getStaticPaths() {
+  return feedPages.slice(1).map((_, index) => ({
+    params: { page: String(index + 2) },
+    props: { page: index + 2 },
+  }))
+}
+
+const { page } = Astro.props
+---
+<Feed page={page} />

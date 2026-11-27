@@ -1,0 +1,22 @@
+---
+import Shell from '../../layouts/Shell.astro'
+import Edition from '../../components/Edition.astro'
+import { base, issues, issueUrl, formatDate, siteName } from '../../lib/issues.mjs'
+export function getStaticPaths() {
+  return issues.map((issue, index) => ({
+    params: { date: issue.date },
+    props: { issue, newer: issues[index - 1], older: issues[index + 1] },
+  }))
+}
+const { issue, newer, older } = Astro.props
+---
+<Shell title={issue.title + ' · ' + siteName} description={issue.summary}>
+  <div class="reading detail">
+    <Edition issue={issue} />
+    <nav class="adjacent" aria-label="周报导航">
+      {newer && <a href={issueUrl(newer.date)}>更新一期 <span>{formatDate(newer.date)}</span></a>}
+      {older && <a href={issueUrl(older.date)}>更早一期 <span>{formatDate(older.date)}</span></a>}
+      <a href={base + '/archive/'}>往期归档</a>
+    </nav>
+  </div>
+</Shell>

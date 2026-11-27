@@ -1,0 +1,57 @@
+import { readdir, readFile } from 'node:fs/promises'
+import assert from 'node:assert/strict'
+
+const directory = new URL('../content/issues/', import.meta.url)
+const files = (await readdir(directory)).filter(name => name.endsWith('.json'))
+assert(files.length, 'No weekly issues found')
+
+const internalReference = /chatgpt-conversation:||chatgpt-content-reference|file:\/\/|内部链接|未公开路线图|精兵强将/u
+const nonArticlePaths = new Set(['/articles', '/blog', '/topic', '/videos'])
+function checkText(value, field) {
+  assert(typeof value === 'string' && value.trim(), field + ' is empty')
+  assert(!internalReference.test(value), field + ' contains an internal reference')
+}
+
+for (const filename of files) {
+  const issue = JSON.parse(await readFile(new URL(filename, directory), 'utf8'))
+  try {
+    assert.match(issue.date, /^\d{4}-\d{2}-\d{2}$/)
+    assert.equal(new Date(issue.date).toISOString().slice(0, 10), issue.date)
+    assert.equal(filename, issue.date + '.json')
+    for (const field of ['title', 'summary']) checkText(issue[field], field)
+    if (issue.directoryLabel !== undefined) {
+      checkText(issue.directoryLabel, 'directoryLabel')
+      assert(Array.from(issue.directoryLabel).length <= 8, 'directoryLabel must be at most eight characters')
+    }
+    if (issue.coverSource !== undefined) {
+      for (const field of ['url', 'credit', 'alt']) checkText(issue.coverSource[field], 'coverSource.' + field)
+      const coverUrl = new URL(issue.coverSource.url)
+      assert(coverUrl.protocol === 'https:' && !coverUrl.username && !coverUrl.password, 'Invalid cover attribution URL')
+    }
+    assert(Array.isArray(issue.tags) && issue.tags.length, 'Issue has no tags')
+    for (const tag of issue.tags) checkText(tag, 'tag')
+    assert(Array.isArray(issue.focus) && issue.focus.length, 'Issue has no practice section')
+    for (const paragraph of issue.focus) checkText(paragraph, 'focus paragraph')
+    assert(Array.isArray(issue.items) && issue.items.length >= 3 && issue.items.length <= 5, 'Expected three to five stories')
+    for (const item of issue.items) {
+      for (const field of ['title', 'publisher', 'url']) {
+        checkText(item[field], 'item.' + field)
+      }
+      assert(Array.isArray(item.paragraphs) && item.paragraphs.length >= 2, 'Expected at least two story paragraphs')
+      for (const paragraph of item.paragraphs) checkText(paragraph, 'story paragraph')
+      if (item.insight !== undefined) checkText(item.insight, 'item.insight')
+      if (item.tags !== undefined) {
+        assert(Array.isArray(item.tags), 'Story tags must be an array')
+        for (const tag of item.tags) checkText(tag, 'story tag')
+      }
+      const url = new URL(item.url)
+      const path = url.pathname.replace(/\/$/, '')
+      assert(url.protocol === 'https:' && !url.username && !url.password, 'Invalid source URL')
+      assert(path && !nonArticlePaths.has(path), 'Source must link to a specific article, video or course')
+    }
+  } catch (error) {
+    throw new Error(filename + ' · ' + error.message, { cause: error })
+  }
+}
+
+console.log('Validated ' + files.length + ' weekly issues.')

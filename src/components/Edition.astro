@@ -1,0 +1,63 @@
+---
+import { formatDate, issueUrl } from '../lib/issues.mjs'
+import Story from './Story.astro'
+
+const covers = import.meta.glob<string>('../assets/covers/*.webp', {
+  eager: true,
+  import: 'default',
+  query: '?url',
+})
+
+interface StoryData {
+  title: string
+  publisher: string
+  url: string
+  paragraphs: string[]
+  insight?: string
+  tags?: string[]
+}
+
+interface Props {
+  issue: {
+    date: string
+    title: string
+    summary: string
+    coverSource?: { url: string; credit: string; alt: string }
+    focus: string[]
+    items: StoryData[]
+  }
+  feed?: boolean
+}
+
+const { issue, feed = false } = Astro.props
+const cover = covers['../assets/covers/' + issue.date + (issue.coverSource ? '-source.webp' : '.webp')]
+const Heading = feed ? 'h2' : 'h1'
+const StoryHeading = feed ? 'h3' : 'h2'
+---
+<article class="edition" id={feed ? 'issue-' + issue.date : undefined} tabindex={feed ? '-1' : undefined}>
+  <header class="article-header">
+    <Heading class="article-title">
+      <time datetime={issue.date}>{formatDate(issue.date)}</time>
+      <span class="edition-divider" aria-hidden="true">|</span>
+      {feed ? <a href={issueUrl(issue.date)}>{issue.title}</a> : issue.title}
+    </Heading>
+    {cover && (
+      <figure class="edition-figure">
+        <img class="edition-cover" src={cover} alt={issue.coverSource?.alt ?? ''} loading="lazy" decoding="async" />
+      </figure>
+    )}
+    <p class="lead">{issue.summary}</p>
+  </header>
+  {issue.items.map((item, index) => (
+    <Story
+      item={item}
+      heading={StoryHeading}
+      number={index + 1}
+      sourceCredit={issue.coverSource?.url === item.url ? issue.coverSource.credit : undefined}
+    />
+  ))}
+  <aside class="practice" aria-label="本周可以试">
+    <StoryHeading>本周可以试</StoryHeading>
+    {issue.focus.map(paragraph => <p>{paragraph}</p>)}
+  </aside>
+</article>

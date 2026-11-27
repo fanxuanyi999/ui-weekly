@@ -1,0 +1,30 @@
+---
+import { base, siteName } from '../lib/issues.mjs'
+import '../styles/site.css'
+const { title = siteName, description = '每周追踪设计与产品实践。', section = '' } = Astro.props
+---
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#fcfcfc" />
+  <link rel="icon" href="data:," />
+  <title>{title}</title>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="top">
+    <nav class="nav frame" aria-label="主导航">
+      <a class="brand" href={base + '/'}><span class="brand-icon" aria-hidden="true"></span>{siteName}</a>
+      <a class="nav-link" href={base + '/archive/'} aria-current={section === 'archive' ? 'page' : undefined}>往期归档</a>
+    </nav>
+  </header>
+  <main id="main"><slot /></main>
+  <footer class="footer">
+    <p class="frame">每一次认真推敲，都是在替用户少走一步弯路。</p>
+  </footer>
+</body>
+</html>
