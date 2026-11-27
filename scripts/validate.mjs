@@ -37,6 +37,7 @@ for (const filename of files) {
       for (const field of ['title', 'publisher', 'url']) {
         checkText(item[field], 'item.' + field)
       }
+      if (item.sourceTitle !== undefined) checkText(item.sourceTitle, 'item.sourceTitle')
       assert(Array.isArray(item.paragraphs) && item.paragraphs.length >= 2, 'Expected at least two story paragraphs')
       for (const paragraph of item.paragraphs) checkText(paragraph, 'story paragraph')
       if (item.insight !== undefined) checkText(item.insight, 'item.insight')

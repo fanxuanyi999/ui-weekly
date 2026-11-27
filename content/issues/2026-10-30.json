@@ -15,6 +15,7 @@
     {
       "title": "UX 从业者感受到提速，也关心质量",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "UX 中的 AI：工作更快，从业者感受不一",
       "url": "https://www.nngroup.com/articles/ai-in-ux-survey-26/",
       "paragraphs": [
         "NN/g 调查了 521 名 UX 从业者，发现他们广泛接触 AI，输出质量仍是采用中的主要障碍之一。速度收益容易观察，人的校对和返工更容易在统计里消失。",
@@ -29,6 +30,7 @@
     {
       "title": "模拟适合哪类研究任务",
       "publisher": "Microsoft Design",
+      "sourceTitle": "合成用户、合成数据与模拟的局限",
       "url": "https://microsoft.design/articles/synthetic-users/",
       "paragraphs": [
         "Microsoft 邀请三位研究人员讨论模拟用户。讨论涉及如何看待模拟对真人经验的替代、怎样使用基于真实用户数据的合成数据，以及不同研究任务对证据的要求。让通用模型扮演某个垂直玩家群体，结果很容易集中在常见说法。",
@@ -43,6 +45,7 @@
     {
       "title": "AI 的审查负荷需要设计",
       "publisher": "Microsoft Design",
+      "sourceTitle": "Faster, Not Lighter：AI Brain Fry 的认知负担",
       "url": "https://microsoft.design/articles/faster-not-lighter-living-with-ai-brain-fry/",
       "paragraphs": [
         "Microsoft Design 把一种工作体验描述为 AI Brain Fry：生成材料变快以后，人需要持续检查、比较和选择。一场评审同时拿到多个原型时，设计师可能把本该自己完成的筛选工作交给了评审者。",
@@ -57,6 +60,7 @@
     {
       "title": "为 AI 的运行状态设计视觉表达",
       "publisher": "Google Design",
+      "sourceTitle": "Google Design：Gemini App 的视觉设计",
       "url": "https://design.google/library/gemini-ai-visual-design",
       "paragraphs": [
         "Google Design 展示了 Gemini 如何用颜色、形状、方向和动效表达运行状态。方向可以关联输入，内部运动提示系统正在工作，动画的起点和终点则帮助用户理解操作与反馈的关系。",

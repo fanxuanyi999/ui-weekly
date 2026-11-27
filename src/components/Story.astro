@@ -4,6 +4,7 @@ interface Props {
     title: string
     publisher: string
     url: string
+    sourceTitle?: string
     paragraphs: string[]
     insight?: string
     tags?: string[]
@@ -15,6 +16,7 @@ interface Props {
 const { item, heading: Heading, number, sourceCredit = item.publisher } = Astro.props
 const [finding, ...remaining] = item.paragraphs
 const advice = remaining.pop()
+const sourceHost = new URL(item.url).hostname.replace(/^www\./, '')
 ---
 <section class="story">
   <Heading><span class="story-number">{String(number).padStart(2, '0')}.</span> {item.title}</Heading>
@@ -26,5 +28,28 @@ const advice = remaining.pop()
   {item.insight && <p><strong>应用价值：</strong>{item.insight}</p>}
   {remaining.map(paragraph => <p>{paragraph}</p>)}
   {advice && <p><strong>可执行建议：</strong>{advice}</p>}
-  <p class="source"><a href={item.url}>阅读原文</a></p>
+  <p class="source">
+    <a class="source-link" href={item.url} target="_blank" rel="noopener">
+      原文：{item.sourceTitle ?? item.publisher}
+      <svg class="source-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M3 9 9 3M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><span class="visually-hidden">（在新标签页打开）</span>
+    </a>
+    <span class="source-preview">
+      <span class="source-preview-panel">
+        <a class="source-preview-link" href={item.url} target="_blank" rel="noopener" aria-label={'在新标签页打开 ' + sourceHost} title={item.url}>
+          <span class="source-preview-address">{item.url}</span>
+          <svg class="source-icon" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M3 9 9 3M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <button class="source-copy" type="button" aria-label="复制原文链接">复制</button>
+        <span class="visually-hidden" role="status"></span>
+      </span>
+    </span>
+  </p>
 </section>
+
+<script>
+  import '../lib/source-preview'
+</script>

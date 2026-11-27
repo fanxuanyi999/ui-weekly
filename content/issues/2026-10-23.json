@@ -15,6 +15,7 @@
     {
       "title": "合成用户能拓展假设，真人研究提供证据",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "合成用户与真人受访者：结论相同，回答多样性不同",
       "url": "https://www.nngroup.com/articles/synthetic-users-vs-human-respondents/",
       "paragraphs": [
         "NN/g 将 120 个合成用户的开放题回答与 604 位真人的回答比较。两类回答指向相同的总体结论，真人的措辞和观点更丰富。这样的差异对研究玩家文化、社区表达和社交动机尤其重要，因为少数意见往往意味着一个新问题。",
@@ -29,6 +30,7 @@
     {
       "title": "把用户偏好带回 AI 评估",
       "publisher": "Microsoft Design",
+      "sourceTitle": "让用户重新参与 AI 评估",
       "url": "https://microsoft.design/articles/putting-the-user-back-into-ai-evaluation/",
       "paragraphs": [
         "Microsoft 的 Copilot 研究团队让用户比较实际的 AI 输出，从他们的意见反推质量维度。回答在技术上准确，用户仍可能因为语气、上下文或缺少下一步而偏好另一个结果。",
@@ -43,6 +45,7 @@
     {
       "title": "提前研究可能影响路线图的问题",
       "publisher": "UX Research Institute",
+      "sourceTitle": "前瞻性 UX 研究课程",
       "url": "https://www.uxrinstitute.com/course/anticipatory-ux-research",
       "paragraphs": [
         "预见式 UX 研究把注意力放在可能影响未来产品方向的行为变化上。UX Research Institute 的课程以盲点、前沿与可下注方向组织方法，帮助团队把观察转化为值得探索的机会。",
@@ -57,6 +60,7 @@
     {
       "title": "用 Stripe 案例拆解视觉原则",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "以 Stripe 为例：五项视觉设计原则",
       "url": "https://www.nngroup.com/videos/5-design-principles-in-context-stripe/",
       "paragraphs": [
         "NN/g 用 Stripe 讲解尺度、视觉层级、平衡、对比与格式塔原则怎样共同影响注意力。团队收集页面截图之后，可以继续追问为什么一个信息块会先被看见，以及某些区域怎样建立分组关系。",

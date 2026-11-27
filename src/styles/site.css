@@ -60,24 +60,63 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .archive-list time { color: var(--muted); font-size: .875rem; font-variant-numeric: tabular-nums; }
 .lead, .story p, .practice p { font-size: 1rem; line-height: 1.625; }
 .lead { margin: 0; }
-.story + .story { margin-top: 24px; }
+.story ~ .story { margin-top: 24px; }
 :is(.story, .practice) :is(h2, h3) { margin: 0 0 8px; font-size: 1.125rem; font-weight: 650; line-height: 1.55; }
 .story-number { font-variant-numeric: tabular-nums; }
 .story-tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0 0 12px; }
 .story-tags li { background: var(--surface); color: var(--muted); border-radius: 999px; padding: 2px 7px; font-size: .75rem; line-height: 1.35; }
 .story p, .practice p { margin: 0 0 8px; }
 .story strong { font-weight: 600; }
-.story .source { margin: 0; }
-.source a {
+.story .source { position: relative; width: fit-content; max-width: 100%; margin: 0; }
+.source-link {
   color: var(--weekly-green);
   text-decoration-color: color-mix(in srgb, var(--weekly-green) 55%, transparent);
   text-decoration-style: solid;
   transition: color 160ms ease, text-decoration-color 160ms ease;
 }
-.source a:is(:hover, :focus-visible) {
+.source-link:is(:hover, :focus-visible) {
   color: var(--weekly-green-dark);
   text-decoration-color: var(--weekly-green);
 }
+.source-icon { display: inline-block; flex: none; width: .75em; height: .75em; vertical-align: .02em; }
+.source-link .source-icon { margin-inline-start: .2em; }
+.source-preview {
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 0;
+  width: max-content;
+  max-width: min(420px, calc(100vw - 36px));
+  padding-bottom: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 140ms ease, visibility 140ms ease;
+}
+.source:not([data-preview-dismissed]):focus-within .source-preview {
+  opacity: 1;
+  visibility: visible;
+}
+@media (hover: hover) {
+  .source:not([data-preview-dismissed]):hover .source-preview {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.source-preview-panel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 5px 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 14px #171c181a;
+  font-size: .8125rem;
+}
+.source-preview-link { display: flex; align-items: center; gap: 5px; min-width: 0; min-height: 32px; color: var(--ink); }
+.source-preview-address { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.source-copy { flex: none; min-height: 32px; padding: 3px 8px; border: 0; border-radius: 5px; background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; }
+.source-copy:is(:hover, :focus-visible) { background: var(--weekly-green-tint); }
 .practice { margin-top: 26px; border-left: 2px solid var(--accent); padding: 4px 0 4px 14px; }
 .practice p:last-child { margin-bottom: 0; }
 .adjacent { padding-block: 20px; display: flex; flex-wrap: wrap; column-gap: 24px; border-top: 1px solid var(--line); }
@@ -166,7 +205,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .source a, .issue-index-nav a, .issue-index-nav a::before, .issue-index-label { transition: none; }
+  .source-link, .source-preview, .issue-index-nav a, .issue-index-nav a::before, .issue-index-label { transition: none; }
   .issue-index-nav a:is(:hover, :focus-visible) .issue-index-label { transform: none; }
 }
 
@@ -176,7 +215,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .edition { padding-block: 22px 29px; }
   .edition-cover { aspect-ratio: 3.2 / 1; }
   .article-header { margin-bottom: 20px; }
-  .story + .story { margin-top: 22px; }
+  .story ~ .story { margin-top: 22px; }
   .archive { padding-top: 36px; }
   .archive-list a { grid-template-columns: 1fr; gap: 4px; }
 }

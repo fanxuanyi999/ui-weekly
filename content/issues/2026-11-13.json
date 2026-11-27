@@ -16,6 +16,7 @@
     {
       "title": "Gemini 设计师开发视觉压力测试工具",
       "publisher": "Google Design",
+      "sourceTitle": "Google Design：用 Gemini 设计下一代界面",
       "url": "https://design.google/library/the-next-interface-gemini",
       "paragraphs": [
         "Google Design 记录了 Gemini 团队怎样应对实时生成的文本。设计师做了可运行的内部研究原型，调整字号、字距与行高，并观察长短不同的输出会怎样影响布局。这样的工具能让团队在制定视觉规范时直接看到规则的边界。",
@@ -30,9 +31,10 @@
     {
       "title": "UX 培训开始同时讨论效率和质量",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "NN/g 课程：AI for Design Workflows",
       "url": "https://www.nngroup.com/courses/ai-for-design/?event=november",
       "paragraphs": [
-        "NN/g 的 11 月课程同时涉及在有限资源下提高 UX 效率、AI 设计工作流和加速研究。这是培训方向的信号。它提出了一个值得团队自己回答的问题：AI 节省的究竟是制作时间，还是整个项目的时间？",
+        "NN/g 的11月课程同时涉及在有限资源下提高 UX 效率、AI 设计工作流和加速研究。这是培训方向的信号。它提出了一个值得团队自己回答的问题：AI 节省的究竟是制作时间，还是整个项目的时间？",
         "回看 10 个已完成需求，将耗时按研究、制图、评审、等待和验收拆开。找排在前两位的可重复工作，先选其中一项做小试点。如果制图节省一小时，评审却增加一小时，就需要重新设计交接方式。"
       ],
       "tags": [
@@ -44,6 +46,7 @@
     {
       "title": "给团队 Agent 明确介入范围",
       "publisher": "Microsoft Design",
+      "sourceTitle": "当 AI 加入团队：设计 Agent 的三项原则",
       "url": "https://microsoft.design/articles/principles-for-responsible-agent-design/",
       "paragraphs": [
         "Microsoft 给团队 Agent 设定的原则包括清晰的角色边界、与人的意图保持一致，以及避免放大偏见。会议辅助 Agent 的价值可以体现在把讨论整理成行动项，并在任务需要决定时交还控制权。",
@@ -58,6 +61,7 @@
     {
       "title": "研究如何参与 AI 产品底层行为设计",
       "publisher": "Microsoft Design",
+      "sourceTitle": "The Great UXR Transformation：用户研究如何转型",
       "url": "https://microsoft.design/articles/the-great-uxr-transformation/",
       "paragraphs": [
         "《The Great UXR Transformation》讨论了 AI 产品怎样把研究对象扩展到动态输出、系统行为以及人与产品的长期关系。拿游戏推荐举例，用户可以顺利操作页面，同时仍然收到不符合游玩意图的推荐。",

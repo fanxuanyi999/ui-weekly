@@ -16,6 +16,7 @@
     {
       "title": "把 UX 研究带进每次迭代",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "Research-in-the-Loop：用户研究如何跟上 AI 开发速度",
       "url": "https://www.nngroup.com/articles/research-in-the-loop/",
       "paragraphs": [
         "当 AI 把开发周期压缩到很短，等产品上线再做一轮完整调研，结果往往赶不上下一次发布。NN/g 提出的 Research-in-the-Loop 把研究问题放进迭代本身。写需求规格时，就决定用户在哪一步可能遇到问题，以及上线后能用什么信号看出来。",
@@ -30,6 +31,7 @@
     {
       "title": "旅程图应该覆盖用户的完整目标",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "Journey Mapping 101：用户旅程图入门",
       "url": "https://www.nngroup.com/articles/journey-mapping-101/",
       "paragraphs": [
         "NN/g 更新的《Journey Mapping 101》把旅程锚定在用户想完成的目标，并记录每一步的行动、疑问和感受。一个在线游戏玩家想要的是顺利进入游戏。他可能先查询等待时间，再切到别的 App，稍后返回并恢复连接。排队界面本身可用，跨场景的信息仍可能丢失。",
@@ -44,6 +46,7 @@
     {
       "title": "区分 AI 熟练度与 UX 专业经验",
       "publisher": "Microsoft Design",
+      "sourceTitle": "AI 熟练度与经验：不同职业阶段的用户研究者",
       "url": "https://microsoft.design/articles/uxr-experience/",
       "paragraphs": [
         "Microsoft 访谈不同资历的 UX 研究者后讨论了两类能力。工具熟练的人更容易搭起自动化流程，资深研究者往往拥有较丰富的问题定义、方法选择和证据判断经验。这些能力可以在一次研究任务中共同发挥。",
@@ -58,6 +61,7 @@
     {
       "title": "按可能出现的结果范围设计",
       "publisher": "Microsoft Design",
+      "sourceTitle": "Scaling the Design Process：扩展设计流程",
       "url": "https://microsoft.design/articles/scaling-the-design-process/",
       "paragraphs": [
         "Microsoft 的 Chelsea Simek 在《Scaling the Design Process》中讨论了智能产品结果的不确定性。以游戏搜索为例，一句查询可能得到一条短答、多款游戏推荐或互相冲突的信息。相同的用户画像也会在不同的任务里遇到不同的输出范围。",

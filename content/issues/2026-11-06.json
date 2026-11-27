@@ -15,6 +15,7 @@
     {
       "title": "AI 软件工厂中的 UX 角色",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "UX 在 Agentic Software Factories 中的角色",
       "url": "https://www.nngroup.com/articles/ux-agentic-software-factories/",
       "paragraphs": [
         "NN/g 讨论了 AI 软件工厂的一个缺口：需求文档与设计规范可以驱动界面生成，但它们记录的是团队已经掌握的知识。来自真实用户的疑问、行为与风险，还需要研究和体验验证来发现。",
@@ -29,6 +30,7 @@
     {
       "title": "保留用户任务所需的复杂度",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "Complex vs. Complicated：复杂与繁琐",
       "url": "https://www.nngroup.com/videos/complex-vs-complicated/",
       "paragraphs": [
         "复杂工具可能需要同时呈现多个参数，游戏详情页也可能要容纳攻略、评价、活动和社区入口。NN/g 的方法提醒团队区分任务必要的复杂性，以及因组织、命名或操作步骤造成的负担。",
@@ -43,6 +45,7 @@
     {
       "title": "让标签页对应清晰的组织方式",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "Tabs Used Right：正确使用标签页",
       "url": "https://www.nngroup.com/videos/tabs-used-right/",
       "paragraphs": [
         "页面底部的导航标签与页面内部的分类标签看上去可能很像，用户期待的行为却不同。前者让人切换到另外一个功能，后者帮助人在同一个功能中改变所看的内容。",
@@ -57,6 +60,7 @@
     {
       "title": "设计对象扩展到人与 Agent 的协作",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "体验设计：为什么从「用户体验」转向「体验」",
       "url": "https://www.nngroup.com/articles/ux-vs-experience-design/",
       "paragraphs": [
         "当 Agent 代表用户筛选信息或操作软件，设计需要同时考虑人与界面的交互、Agent 使用的数据，以及两者的交接。例如帮用户找一款双人联机游戏时，Agent 可能先收集平台和人数，再返回推荐。",

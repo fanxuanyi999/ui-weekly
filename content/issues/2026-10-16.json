@@ -15,6 +15,7 @@
     {
       "title": "小组共学让 AI 实践容易复用",
       "publisher": "Figma",
+      "sourceTitle": "Figma：推动 AI 采用的四个团队习惯",
       "url": "https://www.figma.com/blog/4-team-rituals-that-drive-ai-adoption/",
       "paragraphs": [
         "Figma 汇总了 Figma、Sephora、Mercari 与 Atlassian 的做法。Figma 试行了六周的小组学习，Mercari 让设计和工程相互补技能，Atlassian 则让团队先操作原型再听解释。共同点在于把 AI 实践写进了团队的协作安排。",
@@ -29,6 +30,7 @@
     {
       "title": "实现提速以后，设计评审也要跟上",
       "publisher": "Designer Fund × Anthropic",
+      "sourceTitle": "走进 Anthropic 设计团队：当代码不再是瓶颈",
       "url": "https://designerfund.substack.com/p/ai-design-anthropic",
       "paragraphs": [
         "Designer Fund 对 Anthropic 设计团队的采访展示了另一种节奏：一个点子很快可以变成可运行的原型，团队因此有机会反复评审和调整。实现变快，把注意力转移到了该花多少时间验证一个方向。",
@@ -43,6 +45,7 @@
     {
       "title": "用上下文库积累可复用知识",
       "publisher": "Nielsen Norman Group",
+      "sourceTitle": "上下文库：AI 熟练用户如何管理项目上下文",
       "url": "https://www.nngroup.com/articles/context-libraries/",
       "paragraphs": [
         "NN/g 观察熟练用户如何用上下文库维护项目知识。把全局规则、项目特例和原始材料一起交给 AI，容易出现规则串用，例如把上一个项目的视觉规范用到当前任务。",
@@ -57,6 +60,7 @@
     {
       "title": "让研究发现进入设计决策",
       "publisher": "Nielsen Norman Group 延伸阅读",
+      "sourceTitle": "如何为客户旅程地图开展用户研究",
       "url": "https://www.nngroup.com/articles/research-journey-mapping/",
       "paragraphs": [
         "团队读到完整的调研过程，也可能说不出下一步该改什么。可以用用户旅程中的观察来组织研究结论，将证据、风险和设计决定放在一起。",
